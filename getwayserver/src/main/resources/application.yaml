@@ -1,0 +1,36 @@
+
+spring:
+  application:
+    name: gatewayserver
+  config:
+    import: ${CONFIG_HOST:optional:configserver:http://localhost:8070/}
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Gatewayserver"
+    description: "Gateway Server system"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      julioluis:
+        getewayserver: DEBUG
